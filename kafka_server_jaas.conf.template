@@ -1,0 +1,6 @@
+KafkaServer {
+   org.apache.kafka.common.security.{{KAFKA_LOGIN_MODULE}} required
+   username="{{KAFKA_SUPER_USER}}"
+   password="{{KAFKA_SUPER_USER_PASSWORD}}"
+   user_admin="{{KAFKA_ADMIN_USER_PASSWORD}}";
+};

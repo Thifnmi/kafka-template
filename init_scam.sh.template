@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+KAFKA_STORAGE_UUID="{{CLUSTER_ID}}"
+KAFKA_DATA_DIR="{{KAFKA_LOG_DIRS}}"
+
+# Check if storage is already formatted
+if [ ! -f "$KAFKA_DATA_DIR/meta.properties" ]; then
+    echo "Formatting Kafka storage..."
+    /opt/kafka/bin/kafka-storage.sh format -t $KAFKA_STORAGE_UUID -c /etc/kafka/docker/server.properties \
+      --add-scram '{{MECHANISM}}=[name="{{KAFKA_SUPER_USER}}",password="{{KAFKA_SUPER_USER_PASSWORD}}"]' --ignore-formatted
+else
+    echo "Kafka storage is already formatted. Skipping..."
+fi
+
+
+echo "Starting Kafka..."
+# Start Kafka
+exec /opt/kafka/bin/kafka-server-start.sh /etc/kafka/docker/server.properties
