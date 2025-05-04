@@ -8,7 +8,7 @@ KAFKA_DATA_DIR="{{KAFKA_LOG_DIRS}}"
 if [ ! -f "$KAFKA_DATA_DIR/meta.properties" ]; then
     echo "Formatting Kafka storage..."
     /opt/kafka/bin/kafka-storage.sh format -t $KAFKA_STORAGE_UUID -c /etc/kafka/docker/server.properties \
-      --add-scram '{{MECHANISM}}=[name="{{KAFKA_SUPER_USER}}",password="{{KAFKA_SUPER_USER_PASSWORD}}"]' --ignore-formatted
+      --add-scram 'SCRAM-SHA-512=[name="{{KAFKA_SUPER_USER}}",password="{{KAFKA_SUPER_USER_PASSWORD}}"]' --ignore-formatted
 else
     echo "Kafka storage is already formatted. Skipping..."
 fi
