@@ -54,11 +54,11 @@ controller.listener.names=CONTROLLER
 
 # Maps listener names to security protocols, the default is for them to be the same. See the config documentation for more details
 listener.security.protocol.map=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL
-sasl.mechanism={{MECHANISM}}
-sasl.enabled.mechanisms={{MECHANISM}}
-sasl.mechanism.inter.broker.protocol={{MECHANISM}}
+sasl.mechanism=SCRAM-SHA-512
+sasl.enabled.mechanisms=SCRAM-SHA-512,SCRAM-SHA-256
+sasl.mechanism.inter.broker.protocol=SCRAM-SHA-512
 allow.everyone.if.no.acl.found=false
-sasl.mechanism.controller.protocol={{MECHANISM}}
+sasl.mechanism.controller.protocol=SCRAM-SHA-512
 
 # ACL
 super.users=User:{{KAFKA_SUPER_USER}};User:ANONYMOUS;
