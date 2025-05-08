@@ -53,7 +53,7 @@ advertised.listeners={{KAFKA_ADVERTISED_LISTENERS}}
 controller.listener.names=CONTROLLER
 
 # Maps listener names to security protocols, the default is for them to be the same. See the config documentation for more details
-listener.security.protocol.map=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL
+listener.security.protocol.map=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL,WAN:SASL_PLAINTEXT
 sasl.mechanism=SCRAM-SHA-512
 sasl.enabled.mechanisms=SCRAM-SHA-512,SCRAM-SHA-256
 sasl.mechanism.inter.broker.protocol=SCRAM-SHA-512
